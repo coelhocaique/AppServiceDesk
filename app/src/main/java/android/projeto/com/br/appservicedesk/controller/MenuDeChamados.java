@@ -1,6 +1,7 @@
-package android.projeto.com.br.appservicedesk;
+package android.projeto.com.br.appservicedesk.controller;
 
 import android.content.Intent;
+import android.projeto.com.br.appservicedesk.R;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
