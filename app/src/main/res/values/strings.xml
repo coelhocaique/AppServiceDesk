@@ -14,4 +14,7 @@
     <string name="lista_status">Consultar por Status</string>
     <string name="lista_fila">Consultar por Fila</string>
     <string name="lista_todos">Consultar Todos</string>
+    <string name="numero_chamado">Numero Chamado</string>
+    <string name="status">Status</string>
+
 </resources>

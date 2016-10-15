@@ -7,7 +7,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="16dp"
-    tools:context=".controller.ListarChamados">
+    tools:context=".controller.ListaPorFila">
 
 
     <TableLayout
@@ -26,7 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textSize="30sp"
-                android:text="@string/escolha_status"
+                android:text="@string/escolha_fila"
                 android:textStyle="bold"
                 android:textColor="@color/abc_primary_text_material_light" />
         </TableRow>
@@ -41,9 +41,8 @@
             <Spinner
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:labelFor="@string/escolha_status"
                 android:longClickable="true"
-                android:id="@+id/escolherStatus" />
+                android:id="@+id/escolherFila" />
         </TableRow>
 
         <TableRow
@@ -75,8 +74,10 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:padding="10dp"
-                android:paddingTop="10dp" />
+                android:paddingTop="10dp"
+                android:onClick="listarChamados"/>
         </TableRow>
     </TableLayout>
 
 </LinearLayout>
+

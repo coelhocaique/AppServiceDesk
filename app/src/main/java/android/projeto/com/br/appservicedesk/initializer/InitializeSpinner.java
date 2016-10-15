@@ -1,6 +1,5 @@
 package android.projeto.com.br.appservicedesk.initializer;
 
-import android.app.Activity;
 import android.content.Context;
 import android.projeto.com.br.appservicedesk.enums.StatusConsts;
 import android.projeto.com.br.appservicedesk.enums.TiposDeFila;
@@ -19,7 +18,6 @@ public class InitializeSpinner {
         List<TiposDeFila> spinnerArray = Arrays.asList(TiposDeFila.values());
         ArrayAdapter<TiposDeFila> adapter = new ArrayAdapter<>(
                 context, android.R.layout.simple_spinner_item, spinnerArray);
-
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         return spinner;
@@ -29,7 +27,6 @@ public class InitializeSpinner {
         List<StatusConsts> spinnerArray = Arrays.asList(StatusConsts.values());
         ArrayAdapter<StatusConsts> adapter = new ArrayAdapter<>(
                 context, android.R.layout.simple_spinner_item, spinnerArray);
-
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         return spinner;

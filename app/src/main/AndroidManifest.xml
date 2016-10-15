@@ -20,7 +20,10 @@
         <activity android:name=".controller.ChamadoMensagem" />
         <activity android:name=".controller.FecharChamados" />
         <activity android:name=".controller.FecharChamadosLista" />
-        <activity android:name=".controller.ListaDeChamados"/>
+        <activity android:name=".controller.ListaTodosChamados" />
+        <activity android:name=".controller.ListaPorFila" />
+        <activity android:name=".controller.ListaPorStatus"></activity>
+        <activity android:name=".controller.DetalheChamadosActivity"></activity>
     </application>
 
 </manifest>
