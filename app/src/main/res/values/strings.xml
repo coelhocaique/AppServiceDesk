@@ -16,5 +16,8 @@
     <string name="lista_todos">Consultar Todos</string>
     <string name="numero_chamado">Numero Chamado</string>
     <string name="status">Status</string>
+    <string name="sim">Sim</string>
+    <string name="nao">Não</string>
+    <string name="fechar_chamado_confirmation">Deseja realemnte fechar esse chamado?</string>
 
 </resources>
