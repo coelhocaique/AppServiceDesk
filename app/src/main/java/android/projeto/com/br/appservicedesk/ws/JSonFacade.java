@@ -77,7 +77,7 @@ public class JSonFacade {
         }
     }
 
-    public static String clienteToJSon(Chamado chamado) throws IOException {
+    public static String chamadoToJSon(Chamado chamado) throws IOException {
         JSONObject object = new JSONObject();
         try {
             object.put("numero",chamado.getNumero());
