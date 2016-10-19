@@ -3,7 +3,6 @@ package android.projeto.com.br.appservicedesk.model;
 import android.app.Activity;
 import android.content.Context;
 import android.projeto.com.br.appservicedesk.R;
-import android.projeto.com.br.appservicedesk.initializer.StatusConverter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.SectionIndexer;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Locale;
 
@@ -21,12 +21,12 @@ public class ChamadoAdapter extends BaseAdapter implements SectionIndexer {
 
 
     Activity context;
-    Chamado[] chamados;
+    ArrayList<Chamado> chamados;
     Object[] sectionHeaders;
     Hashtable<Integer, Integer> positionForSectionMap;
     Hashtable<Integer, Integer> sectionForPositionMap;
 
-    public ChamadoAdapter(Activity context, Chamado[] chamados){
+    public ChamadoAdapter(Activity context, ArrayList<Chamado> chamados){
         this.context = context;
         this.chamados = chamados;
         sectionHeaders = SectionIndexBuilder.BuildSectionHeaders(chamados);
@@ -37,13 +37,13 @@ public class ChamadoAdapter extends BaseAdapter implements SectionIndexer {
 
     @Override
     public int getCount() {
-        return chamados.length;
+        return chamados.size();
     }
 
     @Override
     public Object getItem(int position) {
-        if(position >= 0 && position < chamados.length){
-            return chamados[position];
+        if(position >= 0 && position < chamados.size()){
+            return chamados.get(position);
         }
         return null;
     }
@@ -75,9 +75,9 @@ public class ChamadoAdapter extends BaseAdapter implements SectionIndexer {
         ViewHolder holder = (ViewHolder)view.getTag();
         //carrega os novos valores
         Locale locale = new Locale("pt", "BR");
-        holder.getNumeroChamado().setText(String.valueOf(chamados[position].getNumero()));
-        holder.getDescricaoChamado().setText(chamados[position].getDescricao());
-        holder.getStatusChamado().setText(StatusConverter.statusName.get(chamados[position].getStatus()));
+        holder.getNumeroChamado().setText(String.valueOf(chamados.get(position).getNumero()));
+        holder.getDescricaoChamado().setText(chamados.get(position).getDescricao());
+        //holder.getStatusChamado().setText(StatusConverter.statusName.get(chamados.get(position).getStatus()));
 
         return view;
     }

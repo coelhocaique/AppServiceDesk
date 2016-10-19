@@ -1,15 +1,15 @@
 package android.projeto.com.br.appservicedesk.controller;
 
 import android.content.Intent;
-import android.projeto.com.br.appservicedesk.R;
-import android.projeto.com.br.appservicedesk.initializer.InitializeSpinner;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.projeto.com.br.appservicedesk.R;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Spinner;
 
 public class FecharChamados extends AppCompatActivity {
 
+    public static final String FILA = "android.projeto.com.br.appservicedesk.fila_index";
     private Spinner escolherFila;
 
     @Override
@@ -18,11 +18,12 @@ public class FecharChamados extends AppCompatActivity {
         setContentView(R.layout.activity_fechar_chamados);
         setContentView(R.layout.activity_lista_por_fila);
         escolherFila = (Spinner) findViewById(R.id.escolherFila);
-        escolherFila = InitializeSpinner.initializeAndSetAdapterSppinerForFila(escolherFila,this);
+        //escolherFila = InitializeSpinner.initializeAndSetAdapterSppinerForFila(escolherFila,this);
     }
 
     public void listarChamados(View view){
-        Intent inten = new Intent(this,FecharChamadosLista.class);
-        startActivity(inten);
+        Intent intent = new Intent(this,FecharChamadosLista.class);
+        intent.putExtra(FILA,String.valueOf(escolherFila.getSelectedItemPosition() + 1));
+        startActivity(intent);
     }
 }

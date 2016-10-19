@@ -12,8 +12,6 @@ import android.widget.TextView;
  */
 public class DetalheChamadosActivity extends AppCompatActivity{
 
-    Chamado chamado;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

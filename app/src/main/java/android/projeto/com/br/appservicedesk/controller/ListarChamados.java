@@ -11,7 +11,6 @@ import android.view.View;
 
 public class ListarChamados extends AppCompatActivity {
 
-    public static String TIPO = "android.projeto.com.br.appservicedesk.controller.tipo";
     Activity activity;
 
     @Override

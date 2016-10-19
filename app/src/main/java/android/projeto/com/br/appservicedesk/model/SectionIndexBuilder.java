@@ -8,17 +8,17 @@ import java.util.List;
 import java.util.TreeSet;
 
 /**
- * Created by asbonato on 9/19/16.
+ * Created by caiquecoelho on 10/14/16.
  */
 public class SectionIndexBuilder {
     //cria um array de cabecalhos unicos de secao; os dados devem estar ordenados pelo numero do chamado
-    public static Object[] BuildSectionHeaders(Chamado[] chamados)
+    public static Object[] BuildSectionHeaders(ArrayList<Chamado> chamados)
     {
         List<Long> results = new ArrayList<>();
 
-        if(chamados != null && chamados.length > 0) {
-            for (int i = 0; i < chamados.length; i++) {
-                Long number = chamados[i].getNumero();
+        if(chamados != null && chamados.size() > 0) {
+            for (int i = 0; i < chamados.size(); i++) {
+                Long number = chamados.get(i).getNumero();
 
                 if (!results.contains(number))
                     results.add(number);
@@ -30,15 +30,15 @@ public class SectionIndexBuilder {
     }
 
     //cria um mapa para responder: posicao --> secao de dados ordenados pelo numero do chamado
-    public static Hashtable<Integer, Integer> BuildSectionForPositionMap(Chamado[] chamados)
+    public static Hashtable<Integer, Integer> BuildSectionForPositionMap(ArrayList<Chamado> chamados)
     {
         Hashtable<Integer, Integer> results = new Hashtable<>();
         List<Long> used = new ArrayList<>();
         int section = -1;
 
-        if(chamados != null && chamados.length > 0) {
-            for (int i = 0; i < chamados.length; i++) {
-                Long number = chamados[i].getNumero();
+        if(chamados != null && chamados.size() > 0) {
+            for (int i = 0; i < chamados.size(); i++) {
+                Long number = chamados.get(i).getNumero();
 
                 if (!used.contains(number)) {
                     section++;
@@ -52,15 +52,15 @@ public class SectionIndexBuilder {
     }
 
     //cria um mapa para responder: secao --> posicao de dados ordenados pelo numero do chamado
-    public static Hashtable<Integer, Integer> BuildPositionForSectionMap(Chamado[] chamados)
+    public static Hashtable<Integer, Integer> BuildPositionForSectionMap(ArrayList<Chamado> chamados)
     {
         Hashtable<Integer, Integer> results = new Hashtable<>();
         List<Long> used    = new ArrayList<>();
         int section = -1;
 
-        if(chamados != null && chamados.length > 0) {
-            for (int i = 0; i < chamados.length; i++) {
-                Long numero = chamados[i].getNumero();
+        if(chamados != null && chamados.size() > 0) {
+            for (int i = 0; i < chamados.size(); i++) {
+                Long numero = chamados.get(i).getNumero();
 
                 if (!used.contains(numero)) {
                     section++;

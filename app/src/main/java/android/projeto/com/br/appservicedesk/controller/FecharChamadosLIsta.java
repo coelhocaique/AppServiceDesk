@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.projeto.com.br.appservicedesk.R;
-import android.projeto.com.br.appservicedesk.initializer.StatusConverter;
 import android.projeto.com.br.appservicedesk.model.Chamado;
 import android.projeto.com.br.appservicedesk.model.ChamadoAdapter;
 import android.projeto.com.br.appservicedesk.model.Data;
@@ -16,13 +15,15 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+
 public class FecharChamadosLista extends AppCompatActivity {
 
     public static final String NUMERO = "android.projeto.com.br.appservicedesk.numero_det";
     public static final String DESCRICAO = "android.projeto.com.br.appservicedesk.descricao_det";
     public static final String STATUS = "android.projeto.com.br.appservicedesk.status_det";
     Activity atividade;
-    Chamado[] lista;
+    ArrayList<Chamado> lista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,7 @@ public class FecharChamadosLista extends AppCompatActivity {
         setContentView(R.layout.activity_fechar_chamados_lista);
         atividade = this;
         Intent intent = getIntent();
+        int idfila = Integer.parseInt(intent.getStringExtra(FecharChamados.FILA));
         lista = Data.buscaChamados();
         BaseAdapter adapter = new ChamadoAdapter(this, lista);
         ListView listView = (ListView) findViewById(R.id.fecha_chamados);
@@ -39,7 +41,7 @@ public class FecharChamadosLista extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
+                                    final int position, long id) {
 
                 new AlertDialog.Builder(atividade)
                         .setTitle(R.string.fechar_chamado)
@@ -47,6 +49,7 @@ public class FecharChamadosLista extends AppCompatActivity {
                         .setPositiveButton(R.string.sim, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 // continue with delete
+                                lista.get(position).getNumero();
                             }
                         })
                         .setNegativeButton(R.string.nao, new DialogInterface.OnClickListener() {
