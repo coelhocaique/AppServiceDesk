@@ -33,18 +33,20 @@ public class NovoChamado extends AppCompatActivity {
     private Spinner tiposDeFila;
     private Activity activity;
     private ProgressDialog dialog;
+    EditText text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_novo_chamado);
+        text = (EditText) findViewById(R.id.descricao);
+        text.setMaxWidth(text.getWidth());
         activity = this;
         new LoadFilaTask().execute();
     }
 
 
     public void registrarChamado(View view) throws IOException {
-        EditText text = (EditText) findViewById(R.id.descricao);
         String descricao = text.getText().toString();
         int fila = tiposDeFila.getSelectedItemPosition() + 1;
 
